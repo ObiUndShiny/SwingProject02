@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
 	
 	private JScrollBar scroll_bar;
 	private JLabel status;
+	private JLabel allahuakbar;
 	private JBomb bomb;
 	private Timer timer;
 	
@@ -44,8 +45,11 @@ public class MainFrame extends JFrame {
 		scroll_bar.addAdjustmentListener(new ScrollListener());
 		contentPane.add(scroll_bar, BorderLayout.EAST);
 		
-		control_panel = new JPanel(new GridLayout(2, 1));
+		control_panel = new JPanel(new GridLayout(3, 1));
 		contentPane.add(control_panel, BorderLayout.SOUTH);
+		
+		allahuakbar = new JLabel("ALLAHU AKBAR!!!", SwingConstants.CENTER);
+		//control_panel.add(allahuakbar);
 		
 		status = new JLabel("Time = 5.0s", SwingConstants.CENTER);
 		status.setAlignmentX(0.5f);
@@ -75,6 +79,7 @@ public class MainFrame extends JFrame {
 			scroll_bar.setValue(100-time);
 			
 			if (time == 0) {
+				control_panel.add(allahuakbar);
 				timer.stop();
 			}
 			
