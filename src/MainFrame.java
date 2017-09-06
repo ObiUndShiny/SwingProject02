@@ -59,6 +59,10 @@ public class MainFrame extends JFrame {
 		start.addActionListener(new StartListener());
 		control_panel.add(start);
 		
+		JButton abort = new JButton("Abrechen");
+		abort.addActionListener(new AbortListener());
+		control_panel.add(abort);
+		
 		bomb = new JBomb();
 		bomb.updateImage(50);
 		bomb.setStartTime(50);
@@ -66,6 +70,14 @@ public class MainFrame extends JFrame {
 		
 		timer = new Timer(100, new TimerListener());
 		
+	}
+	
+	private class AbortListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			timer.stop();
+			
+			}
 	}
 	
 	private class TimerListener implements ActionListener {
@@ -94,6 +106,7 @@ public class MainFrame extends JFrame {
 			timer.start();
 		}
 		
+		
 	}
 	
 	private class ScrollListener implements AdjustmentListener {
@@ -105,6 +118,8 @@ public class MainFrame extends JFrame {
 			
 		}
 		
-	}
 	
-}
+		
+	  }
+	
+	}
